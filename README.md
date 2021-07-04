@@ -3,6 +3,7 @@
 
 <a href="https://discord.gg/jrNxkpVaJU" rel="some text">![Discord](https://discordapp.com/api/guilds/816584206838398997/widget.png?style=banner2)</a>
 
+<img src = 'https://media.discordapp.net/attachments/833414724171202580/860788925991747584/unknown.png'>
 ## FEATURES
 - All features of Normal QB-VEHICLESHOP
 - Finance Added with Custom Installment Cost (Percentage system)
