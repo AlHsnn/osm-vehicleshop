@@ -15,12 +15,18 @@ One of my old works, completed now. Took idea from CRON (no extra resource requi
 - Replaced Native Text with some Colourful Text. 
 - Can be easily used even if your server has existing player vehicles. 
 - Greatly reduced Client MS (from around 0.1-0.2, brought down to below 0.06) 
+- Player's cannot buy new cars until old finances are paid.
 
 ## SETUP 
 - The Resource has a SQL Included. Execute the SQL and confirm the changes. 
 - **THE CONFIG HAS A FIELD NAMED `Config.HouroftheDay` which should be something between 0-24 and sets at which hour, finances would be deducted from everyone's account (Daily In REAL TIME). Example : Setting it to 15 would cut finances at 3 PM Server Time Everyday!**
 - Start the resource in resources.cfg
 - Take the `cardealer` job to test all the features. 
+
+## COMMANDS
+- `/finance` for Players to Check how much Pending Finance do they Have.
+- `/finance [amount]` pays 10000 against pending finances. 
+
 
 ## KNOWN ISSUES 
 - Finance and Downpayment values are synced across all cars, thus multiple selling of vehicles might cause issues. 
