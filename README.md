@@ -1,6 +1,8 @@
 # QB VEHICLESHOP with Custom Finance Options and a Clean Interface 
 **Important Note : No support will be provided on this resource if you use some CUSTOM FW or Renamed QBCore.**
 
+One of my old works, completed now. Took idea from CRON (no extra resource required) to build auto deductions. Script is quite stable and optimised (compared to old ones). Also there were many Finance Scripts out there in the Community, but none of them seemed to work properly. This one has been tested by me, and it works flawlessly. 
+
 <a href="https://discord.gg/jrNxkpVaJU" rel="some text">![Discord](https://discordapp.com/api/guilds/816584206838398997/widget.png?style=banner2)</a>
 
 <img src = 'https://media.discordapp.net/attachments/833414724171202580/860788925991747584/unknown.png'>
