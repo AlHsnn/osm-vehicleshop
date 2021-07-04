@@ -18,7 +18,7 @@ One of my old works, completed now. Took idea from CRON (no extra resource requi
 
 ## SETUP 
 - The Resource has a SQL Included. Execute the SQL and confirm the changes. 
-- Replace the Config.lua with your old Config (optional)
+- **THE CONFIG HAS A FIELD NAMED `Config.HouroftheDay` which should be something between 0-24 and sets at which hour, finances would be deducted from everyone's account (Daily In REAL TIME). Example : Setting it to 15 would cut finances at 3 PM Server Time Everyday!**
 - Start the resource in resources.cfg
 - Take the `cardealer` job to test all the features. 
 
