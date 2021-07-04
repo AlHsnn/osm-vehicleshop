@@ -16,8 +16,13 @@
 
 ## SETUP 
 - The Resource has a SQL Included. Execute the SQL and confirm the changes. 
+- Replace the Config.lua with your old Config (optional)
 - Start the resource in resources.cfg
 - Take the `cardealer` job to test all the features. 
+
+## KNOWN ISSUES 
+- Finance and Downpayment values are synced across all cars, thus multiple selling of vehicles might cause issues. 
+- EDM might have some flaws in selling using ID (unsure) 
 
 ## CREDITS
 - Xion for providing the broken finance files making work a bit easy. 
