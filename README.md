@@ -11,7 +11,7 @@ One of my old works, completed now. Took idea from CRON (no extra resource requi
 - All features of Normal QB-VEHICLESHOP
 - Finance Added with Custom Installment Cost (Percentage system)
 - Finances cut automatically every 24 hours (even if player is offline)
-- Custom Downpayment Options
+- Custom Downpayment Options, TEST DRIVE also available for cardealers.
 - Replaced Native Text with some Colourful Text. 
 - Can be easily used even if your server has existing player vehicles. 
 - Greatly reduced Client MS (from around 0.1-0.2, brought down to below 0.06) 
