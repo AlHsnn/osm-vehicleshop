@@ -31,6 +31,7 @@ One of my old works, completed now. Took idea from CRON (no extra resource requi
 ## KNOWN ISSUES 
 - Finance and Downpayment values are synced across all cars, thus multiple selling of vehicles might cause issues. 
 - EDM might have some flaws in selling using ID (unsure) 
+- TestDrive is still like WIP. I doubt it doesn't work. (Create a PR if you fix it)
 
 ## CREDITS
 - Xion for providing the broken finance files making work a bit easy. 
