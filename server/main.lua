@@ -23,7 +23,7 @@ Citizen.CreateThread(function()
         if h == Config.HouroftheDay then 
             TriggerEvent('qb-vehicleshop:server:CutFinance')
         end
-        Citizen.Wait(60000)
+        Citizen.Wait(60000 * 60)
     end
 end)
 
