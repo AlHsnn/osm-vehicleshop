@@ -40,7 +40,7 @@ AddEventHandler('qb-vehicleshop:server:buyVehicle', function(vehicleData, garage
     
     if (balance - vData["price"]) >= 0 then
         local plate = GeneratePlate()
-        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`steam`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `garage`) VALUES ('"..pData.PlayerData.steam.."', '"..cid.."', '"..vData["model"].."', '"..GetHashKey(vData["model"]).."', '{}', '"..plate.."', '"..garage.."')")
+        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `garage`) VALUES ('"..pData.PlayerData.license.."', '"..cid.."', '"..vData["model"].."', '"..GetHashKey(vData["model"]).."', '{}', '"..plate.."', '"..garage.."')")
         TriggerClientEvent("QBCore:Notify", src, "Successful! Your vehicle was delivered to "..QB.GarageLabel[garage], "success", 5000)
         pData.Functions.RemoveMoney('bank', vData["price"], "vehicle-bought-in-shop")
         TriggerEvent("qb-log:server:sendLog", cid, "vehiclebought", {model=vData["model"], name=vData["name"], from="garage", location=QB.GarageLabel[garage], moneyType="bank", price=vData["price"], plate=plate})
@@ -59,7 +59,7 @@ AddEventHandler('qb-vehicleshop:server:buyShowroomVehicle', function(vehicle, cl
     local vehiclePrice = QBCore.Shared.Vehicles[vehicle]["price"]
     local plate = GeneratePlate()
     if (balance - vehiclePrice) >= 0 then
-        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`steam`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`) VALUES ('"..pData.PlayerData.steam.."', '"..cid.."', '"..vehicle.."', '"..GetHashKey(vehicle).."', '{}', '"..plate.."', 0)")
+        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`) VALUES ('"..pData.PlayerData.license.."', '"..cid.."', '"..vehicle.."', '"..GetHashKey(vehicle).."', '{}', '"..plate.."', 0)")
         TriggerClientEvent("QBCore:Notify", src, "Successful! Your vehicle is waiting for you outside.", "success", 5000)
         TriggerClientEvent('qb-vehicleshop:client:buyShowroomVehicle', src, vehicle, plate)
         pData.Functions.RemoveMoney('bank', vehiclePrice, "vehicle-bought-in-showroom")
@@ -86,7 +86,7 @@ AddEventHandler('qb-vehicleshop:server:FinanceVehicle', function(vehicle, class,
             for k, v in pairs(result) do
                 if v.pending_finance == 0 then
                         if (balance - downp) >= 0 then
-                            QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`steam`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`,`finance_owed`, `finperc`) VALUES ('"..pData.PlayerData.steam.."', '"..cid.."', '"..vehicle.."', '"..GetHashKey(vehicle).."', '{}', '"..plate.."', 0, '"..vehicleValue.."', '"..finserv.."')")
+                            QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`,`finance_owed`, `finperc`) VALUES ('"..pData.PlayerData.license.."', '"..cid.."', '"..vehicle.."', '"..GetHashKey(vehicle).."', '{}', '"..plate.."', 0, '"..vehicleValue.."', '"..finserv.."')")
                             QBCore.Functions.ExecuteSql(false, "UPDATE `players` SET `pending_finance` = 1 WHERE `citizenid` = '"..cid.."'")
                             TriggerClientEvent("QBCore:Notify", src, "Successful! Your vehicle is waiting for you outside.", "success", 5000)
                             TriggerClientEvent('qb-vehicleshop:client:buyShowroomVehicle', src, vehicle, plate)
@@ -363,12 +363,12 @@ AddEventHandler('qb-vehicleshop:server:ConfirmVehicle', function(ShowroomVehicle
         Player.Functions.RemoveMoney('cash', VehPrice)
         TriggerEvent("qb-moneysafe:server:Depositcardealer",VehPrice*0.2)
         TriggerClientEvent('qb-vehicleshop:client:ConfirmVehicle', src, ShowroomVehicle, plate)
-        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`steam`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`) VALUES ('"..Player.PlayerData.steam.."', '"..Player.PlayerData.citizenid.."', '"..ShowroomVehicle.vehicle.."', '"..GetHashKey(ShowroomVehicle.vehicle).."', '{}', '"..plate.."', 0)")
+        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`) VALUES ('"..Player.PlayerData.steam.."', '"..Player.PlayerData.citizenid.."', '"..ShowroomVehicle.vehicle.."', '"..GetHashKey(ShowroomVehicle.vehicle).."', '{}', '"..plate.."', 0)")
     elseif Player.PlayerData.money.bank >= VehPrice then
         Player.Functions.RemoveMoney('bank', VehPrice)
         TriggerEvent("qb-moneysafe:server:Depositcardealer",VehPrice*0.2)
         TriggerClientEvent('qb-vehicleshop:client:ConfirmVehicle', src, ShowroomVehicle, plate)
-        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`steam`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`) VALUES ('"..Player.PlayerData.steam.."', '"..Player.PlayerData.citizenid.."', '"..ShowroomVehicle.vehicle.."', '"..GetHashKey(ShowroomVehicle.vehicle).."', '{}', '"..plate.."', 0)")
+        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`) VALUES ('"..Player.PlayerData.steam.."', '"..Player.PlayerData.citizenid.."', '"..ShowroomVehicle.vehicle.."', '"..GetHashKey(ShowroomVehicle.vehicle).."', '{}', '"..plate.."', 0)")
     else
         if Player.PlayerData.money.cash > Player.PlayerData.money.bank then
             TriggerClientEvent('QBCore:Notify', src, 'You don\'t have enough money ... You are missing ('..(Player.PlayerData.money.cash - VehPrice)..',-)')
@@ -389,7 +389,7 @@ AddEventHandler('qb-vehicleshop:server:ConfirmVehicleFinance', function(vehicle,
     local plate = GeneratePlate()
 
     if (balance - financeInstallment) >= 0 then
-        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`steam`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`,`finance_owed`) VALUES ('"..pData.PlayerData.steam.."', '"..cid.."', '"..ShowroomVehicle.vehicle.."', '"..GetHashKey(ShowroomVehicle.vehicle).."', '{}', '"..plate.."', 0, '"..vehicleValue.."')")
+        QBCore.Functions.ExecuteSql(false, "INSERT INTO `player_vehicles` (`license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`,`finance_owed`) VALUES ('"..pData.PlayerData.license.."', '"..cid.."', '"..ShowroomVehicle.vehicle.."', '"..GetHashKey(ShowroomVehicle.vehicle).."', '{}', '"..plate.."', 0, '"..vehicleValue.."')")
         TriggerClientEvent("QBCore:Notify", src, "Successful! Your vehicle is waiting for you outside.", "success", 5000)
         TriggerClientEvent('qb-vehicleshop:client:ConfirmVehicle', src, ShowroomVehicle, plate)
         pData.Functions.RemoveMoney('bank', financeInstallment, "vehicle-financed-in-showroom")
